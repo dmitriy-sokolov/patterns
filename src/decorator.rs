@@ -26,17 +26,17 @@ impl Price for TaxDecorator {
     }
 }
 
-pub struct DiscauntDecorator {
+pub struct DiscountDecorator {
     decorated: Box<dyn Price>,
 }
 
-impl DiscauntDecorator {
+impl DiscountDecorator {
     pub fn new(decorated: Box<dyn Price>) -> Self {
         Self { decorated }
     }
 }
 
-impl Price for DiscauntDecorator {
+impl Price for DiscountDecorator {
     fn calculate(&self, price: f32) -> f32 {
         self.decorated.calculate(price) * 0.75
     }
